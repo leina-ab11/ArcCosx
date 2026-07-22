@@ -1,4 +1,5 @@
 import math
+from null_checker import isNan
 
 # tolerance is 10^-6 to guarantee 3 decimal places of
 # accuracy using Maclaurin's method.
@@ -58,7 +59,7 @@ def read_input(userInput):
         raise ValueError(
             f"Syntax error: '{userInput}' is not a number. Enter a real number, e.g. 0.5."
         )
-    if x < -1 or x > 1 or math.isnan(x):
+    if x < -1 or x > 1 or isNan(x):
         raise ValueError(
             f"Domain error: arccos is undefined for x = {x}. Valid domain: [-1, 1]."
         )
