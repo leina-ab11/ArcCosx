@@ -1,7 +1,4 @@
-import math
-from helper_math_functions import is_nan
-from helper_math_functions import arccos_maclaurin
-
+from helper_math_functions import is_nan, arccos_maclaurin, PI
 
 def read_input(userInput):
     """ Error handling for the user input when the user is out of the domain [-1,1]

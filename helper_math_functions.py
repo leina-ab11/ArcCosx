@@ -14,7 +14,7 @@ def built_sqrt(x):
     """
 
     if x == 0:
-        return f"{0:.1f}"
+        return 0.0
 
     estimate = x
     while True:
@@ -26,10 +26,10 @@ def built_sqrt(x):
 
 
 def is_nan(i):
-   """This method checks for not a number input.
+    """This method checks for not a number input.
     It replaces the math built in function. 
     """
-   return i != i
+    return i != i
 
 def arccos_maclaurin(x, tol=TOL):
     """Compute arccos(x) using the Maclaurin series for arcsin.
