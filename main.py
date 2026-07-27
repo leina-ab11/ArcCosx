@@ -1,52 +1,6 @@
 import math
-from null_checker import isNan
-
-# tolerance is 10^-6 to guarantee 3 decimal places of
-# accuracy using Maclaurin's method.
-
-TOL = 0.000001  
-PI = 3.14159265358979 
-
-def arccos_maclaurin(x, tol=TOL):
-    """Compute arccos(x) using the Maclaurin series for arcsin.
-    Sums the series until the next term is < tol.
-    """
-    # set when x < 0
-    flip = False    
-    # answers exactly at the endpoints of the domain, there's no need to calculate the series
-    if x == 1:
-        return 0.0
-    if x == -1:
-        return PI
-    
-    if x < 0:
-        x = -x
-        flip = True
-        
-    # we first need to reduce arccos(x) to arcsin(x) 
-    # to arccos(x) = 2*arcsin(u) where u = sqrt((1-x)/2)
-    u = math.sqrt((1 - x) / 2)
-    # the first piece of the series
-    total = u 
-    # current piece, starts as term 0      
-    piece = u
-    # the index of the piece, starting from 0       
-    n = 0   
-    # the result of the series when computing the pieces
-    result = 0.0
-
-    while abs(piece) >= tol:
-        piece = piece * (u**2 * (2*n + 1)**2) / ((2*n + 2) * (2*n + 3))
-        total += piece
-        n += 1
-
-    # the result here is arcsin(u), multiplying by 2 to get arccos of |x| = 2*arcsin(u)
-    result = 2 * total 
-    # when x is negative we need to recover the sign of the result
-    if flip:
-        return PI - result
-    
-    return result
+from helper_math_functions import is_nan
+from helper_math_functions import arccos_maclaurin
 
 
 def read_input(userInput):
@@ -59,7 +13,7 @@ def read_input(userInput):
         raise ValueError(
             f"Syntax error: '{userInput}' is not a number. Enter a real number, e.g. 0.5."
         )
-    if x < -1 or x > 1 or isNan(x):
+    if x < -1 or x > 1 or is_nan(x):
         raise ValueError(
             f"Domain error: arccos is undefined for x = {x}. Valid domain: [-1, 1]."
         )
