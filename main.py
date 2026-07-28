@@ -1,4 +1,5 @@
 from helper_math_functions import is_nan, arccos_maclaurin, PI
+from gui import read_input
 
 def main():
     """Textual user interface for the user to use 
