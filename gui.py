@@ -21,7 +21,7 @@ root.title("D2: arccos(x) Calculator")
 root.geometry("385x250")
 root.resizable(False, False)
 
-tk.Label(root, text="Enter x in [-1, 1]:").pack(anchor="center", pady=(12, 6))
+tk.Label(root, text="Enter x in [-1, 1] to calculate arccos(x):").pack(anchor="center", pady=(12, 6))
 entry = tk.Entry(root, width=25)
 entry.pack(anchor="center", pady=6)
 result_label = tk.Label(root, text="")
