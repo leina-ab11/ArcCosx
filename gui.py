@@ -1,5 +1,6 @@
 import tkinter as tk
 from helper_math_functions import arccos_maclaurin, is_nan, PI
+from user_input import read_input
 
 
 
@@ -15,27 +16,9 @@ def calculate():
     result_label.config(text=f"Rad: {result_in_rad:.3f}\nDegrees: {result_in_deg:.3f}")
     
 
-def read_input(userInput):
-    """ Error handling for the user input when the user is out of the domain [-1,1]
-    or when the user inputs non-numerical values.
-    """
-    try:
-        x = float(userInput)
-    except ValueError:
-        raise ValueError(
-            f"Syntax error: '{userInput}' is not a number. Enter a real number, e.g. 0.5."
-        )
-    if x < -1 or x > 1 or is_nan(x):
-        raise ValueError(
-            f"Domain error: arccos is undefined for x = {x}. Valid domain: [-1, 1]."
-        )
-    return x
-
-
-
 root = tk.Tk()
 root.title("D2: arccos(x) Calculator")
-root.geometry("300x300")
+root.geometry("385x250")
 root.resizable(False, False)
 
 tk.Label(root, text="Enter x in [-1, 1]:").pack()
