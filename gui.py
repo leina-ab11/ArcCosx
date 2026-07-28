@@ -18,7 +18,7 @@ def calculate():
 
 root = tk.Tk()
 root.title("D2: arccos(x) Calculator")
-root.geometry("385x250")
+root.geometry("400x250")
 root.resizable(False, False)
 
 tk.Label(root, text="Enter x in [-1, 1] to calculate arccos(x):").pack(anchor="center", pady=(12, 6))
