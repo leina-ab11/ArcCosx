@@ -60,10 +60,6 @@ def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
     total = u 
     # current piece, starts as term 0      
     piece = u
-    # the index of the piece, starting from 0       
-    n = 0   
-    # the result of the series when computing the pieces
-    result = 0.0
 
     for n in range(max_iterations):
         piece = piece * (u**2 * (2*n + 1)**2) / ((2*n + 2) * (2*n + 3))
