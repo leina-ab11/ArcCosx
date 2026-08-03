@@ -1,3 +1,4 @@
+__version__ = "1.1.1"
 # This file contains math helper functions built from scratch.
 
 
@@ -7,6 +8,11 @@
 TOL = 0.000001  
 PI = 3.14159265358979 
 
+# This is the maximum number of iterations to prevent infinite loops in case of convergence issues.
+MAX_ITERATIONS = 100
+
+class ConvergenceError(Exception):
+    pass
 
 def built_sqrt(x):
     """This method calculates the square root of a number x 
@@ -31,7 +37,7 @@ def is_nan(i):
     """
     return i != i
 
-def arccos_maclaurin(x, tol=TOL):
+def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
     """Compute arccos(x) using the Maclaurin series for arcsin.
     Sums the series until the next term is < tol.
     """
@@ -59,15 +65,13 @@ def arccos_maclaurin(x, tol=TOL):
     # the result of the series when computing the pieces
     result = 0.0
 
-    while abs(piece) >= tol:
+    for n in range(max_iterations):
         piece = piece * (u**2 * (2*n + 1)**2) / ((2*n + 2) * (2*n + 3))
         total += piece
-        n += 1
+        if abs(piece) < TOL:
+            result = 2 * total
+            if flip:
+                result = PI - result
+            return result
 
-    # the result here is arcsin(u), multiplying by 2 to get arccos of |x| = 2*arcsin(u)
-    result = 2 * total 
-    # when x is negative we need to recover the sign of the result
-    if flip:
-        return PI - result
-    
-    return result
+    raise ConvergenceError("Maclaurin series did not converge within the maximum number of iterations.")
