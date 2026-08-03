@@ -45,7 +45,7 @@ def main():
     """Build and launch the calculator window."""
     global root, entry, result_label        # pylint: disable=global-variable-undefined
     root = tk.Tk()
-    root.title("D2: arccos(x) Calculator")
+    root.title("D2: arccos(x) Calculator - Version " + __version__)
     root.geometry("400x250")
     root.resizable(False, False)
 
