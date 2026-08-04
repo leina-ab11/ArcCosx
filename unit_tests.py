@@ -2,6 +2,7 @@
 import unittest
 from helper_math_functions import arccos_maclaurin, is_nan, ConvergenceError, PI
 from gui import to_degrees, format_result
+from user_input import read_input
 
 
 class TestArcCosMaclaurin(unittest.TestCase):
@@ -51,6 +52,32 @@ class TestGuiLogic(unittest.TestCase):
         self.assertIn("60.000", text)
         self.assertIn("Rad", text)
         self.assertIn("Degrees", text)
+
+
+class TestReadInput(unittest.TestCase):
+    """Tests for user input parsing and validation."""
+
+    def test_valid_number_accepted(self):
+        """Valid real numbers in domain are returned (FR-1)."""
+        self.assertEqual(read_input("0.5"), 0.5)
+        self.assertEqual(read_input("-1"), -1.0)
+
+    def test_non_numeric_raises(self):
+        """Non-numeric input raises ValueError (FR-3)."""
+        with self.assertRaises(ValueError):
+            read_input("abc")
+        with self.assertRaises(ValueError):
+            read_input("")
+
+    def test_out_of_domain_raises(self):
+        """Out-of-domain input raises ValueError (FR-2)."""
+        with self.assertRaises(ValueError):
+            read_input("2")
+
+    def test_nan_rejected(self):
+        """'nan' is rejected, not accepted as a float."""
+        with self.assertRaises(ValueError):
+            read_input("nan")
 
 
 if __name__ == '__main__':

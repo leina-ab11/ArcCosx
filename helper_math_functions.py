@@ -43,7 +43,6 @@ def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
     """
     if x < -1 or x > 1:
         raise ValueError("Input must be in the range [-1, 1]")
-
     # set when x < 0
     flip = False
     # answers exactly at the endpoints of the domain, there's no need to calculate the series
