@@ -1,5 +1,5 @@
 """GUI for the arccos(x) calculator."""
-__version__ = "1.3.1"
+__version__ = "1.4.0"
 import tkinter as tk
 from tkinter import ttk
 from helper_math_functions import arccos_maclaurin, PI
