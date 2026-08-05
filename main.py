@@ -1,4 +1,7 @@
-from helper_math_functions import is_nan, arccos_maclaurin, PI
+"""The textual user interface for the user to use and it prompts 
+the user to enter a value or q to quit the system.
+D1 requirements."""
+from helper_math_functions import arccos_maclaurin, PI
 from user_input import read_input
 
 def main():
@@ -10,18 +13,18 @@ def main():
     print("++++++++++++++++++++++++++++++++++++\n")
     print("Enter a value for x, or 'q' to quit.\n")
 
-    # keep looping until user quits 
-    while True:  
-        userInput = input("arccos(x): enter x in [-1, 1]: ").strip()
+    # keep looping until user quits
+    while True:
+        user_input = input("arccos(x): enter x in [-1, 1]: ").strip()
 
-        if "q" == userInput.lower():  
+        if "q" == user_input.lower():
             print("Goodbye!")
             break
 
         try:
-            x = read_input(userInput)
+            x = read_input(user_input)
         except ValueError as err:
-            print(f"  {err}\n")  
+            print(f"  {err}\n")
             continue
 
         result_rad = arccos_maclaurin(x)
