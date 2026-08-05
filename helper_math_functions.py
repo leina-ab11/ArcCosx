@@ -25,7 +25,6 @@ def built_sqrt(x):
     estimate = x
     while True:
         next_estimate = (estimate + x / estimate) / 2
-        breakpoint()        # Debugging breakpoint to inspect the values of estimate and next_estimate
         if abs(next_estimate - estimate) < TOL:
             return next_estimate
         estimate = next_estimate
@@ -66,7 +65,6 @@ def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
 
     for n in range(max_iterations):
         piece = piece * (u**2 * (2*n + 1)**2) / ((2*n + 2) * (2*n + 3))
-        breakpoint()            # Debugging breakpoint to inspect the values of piece and total
         total += piece
         if abs(piece) < TOL:
             result = 2 * total
