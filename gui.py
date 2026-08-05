@@ -28,7 +28,8 @@ def format_result(radians, degrees):
 
 
 def calculate():
-    """Calculates the arccos of the input value and updates the result label."""
+    """Calculates the arccos of the input
+    value and updates the result label."""
     user_input = entry.get().strip()
     try:
         i = read_input(user_input)
@@ -60,29 +61,36 @@ def _build_style():
 
     style.configure("Card.TFrame", background=CARD_BG)
     style.configure("Root.TFrame", background=BG)
-
-    style.configure("Title.TLabel", background=CARD_BG, foreground=TEXT_PRIMARY,
+    style.configure("Title.TLabel", background=CARD_BG,
+                    foreground=TEXT_PRIMARY,
                     font=("Segoe UI", 16, "bold"))
-    style.configure("Subtitle.TLabel", background=CARD_BG, foreground=TEXT_MUTED,
+    style.configure("Subtitle.TLabel", background=CARD_BG,
+                    foreground=TEXT_MUTED,
                     font=("Segoe UI", 12))
-    style.configure("Result.TLabel", background=CARD_BG, foreground=TEXT_PRIMARY,
-                    font=("Consolas", 12), justify="center", wraplength=520)
+    style.configure("Result.TLabel", background=CARD_BG,
+                    foreground=TEXT_PRIMARY,
+                    font=("Consolas", 12),
+                    justify="center", wraplength=520)
 
-    style.configure("TEntry", fieldbackground=ENTRY_BG, foreground=TEXT_PRIMARY,
+    style.configure("TEntry", fieldbackground=ENTRY_BG,
+                    foreground=TEXT_PRIMARY,
                     bordercolor=ACCENT, insertcolor=TEXT_PRIMARY,
                     borderwidth=1, relief="flat", padding=8)
     style.map("TEntry", bordercolor=[("focus", ACCENT)])
-
-    style.configure("Accent.TButton", background=ACCENT, foreground="#1a1a1a",
-                    font=("Segoe UI", 10, "bold"), borderwidth=0, padding=(14, 8))
+    style.configure("Accent.TButton", background=ACCENT,
+                    foreground="#1a1a1a",
+                    font=("Segoe UI", 10, "bold"),
+                    borderwidth=0, padding=(14, 8))
     style.map("Accent.TButton", background=[("active", ACCENT_DARK)])
-
-    style.configure("Ghost.TButton", background=CARD_BG, foreground=TEXT_PRIMARY,
-                    font=("Segoe UI", 10), borderwidth=1, padding=(14, 8))
+    style.configure("Ghost.TButton", background=CARD_BG,
+                    foreground=TEXT_PRIMARY,
+                    font=("Segoe UI", 10),
+                    borderwidth=1, padding=(14, 8))
     style.map("Ghost.TButton", background=[("active", ENTRY_BG)])
-
-    style.configure("Exit.TButton", background=CARD_BG, foreground=ERROR,
-                    font=("Segoe UI", 10), borderwidth=1, padding=(14, 8))
+    style.configure("Exit.TButton", background=CARD_BG,
+                    foreground=ERROR,
+                    font=("Segoe UI", 10),
+                    borderwidth=1, padding=(14, 8))
     style.map("Exit.TButton", background=[("active", ENTRY_BG)])
 
     return style
@@ -90,7 +98,9 @@ def _build_style():
 
 def main():
     """Build and launch the calculator window."""
-    global root, entry, result_label        # pylint: disable=global-variable-undefined
+    global root  # pylint: disable=global-variable-undefined
+    global entry  # pylint: disable=global-variable-undefined
+    global result_label  # pylint: disable=global-variable-undefined
     root = tk.Tk()
     root.title("arccos(x) Calculator - Version " + __version__)
     root.geometry("650x380")

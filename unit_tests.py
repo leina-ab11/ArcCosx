@@ -1,6 +1,7 @@
 """Unit tests for the arccos(x) calculator."""
 import unittest
-from helper_math_functions import arccos_maclaurin, is_nan, ConvergenceError, PI
+from helper_math_functions import (
+    arccos_maclaurin, is_nan, ConvergenceError, PI)
 from gui import to_degrees, format_result
 from user_input import read_input
 
@@ -33,7 +34,8 @@ class TestArcCosMaclaurin(unittest.TestCase):
         self.assertFalse(is_nan(-3.14))
 
     def test_arccos_maclaurin_cap_raises(self):
-        """Hitting the iteration cap raises ConvergenceError (P5 safety net)."""
+        """Hitting the iteration cap raises
+        ConvergenceError (P5 safety net)."""
         with self.assertRaises(ConvergenceError):
             arccos_maclaurin(0, max_iterations=2)
 

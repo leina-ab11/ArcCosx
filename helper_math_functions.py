@@ -6,12 +6,14 @@
 TOL = 0.000001
 PI = 3.14159265358979
 
-# This is the maximum number of iterations to prevent infinite loops in case of convergence issues.
+# This is the maximum number of iterations to prevent
+# infinite loops in case of convergence issues.
 MAX_ITERATIONS = 100
 
 
 class ConvergenceError(Exception):
-    """Raised when the Maclaurin series does not converge within the iteration cap."""
+    """Raised when the Maclaurin series
+    does not converge within the iteration cap."""
 
 
 def built_sqrt(x):
@@ -45,7 +47,8 @@ def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
         raise ValueError("Input must be in the range [-1, 1]")
     # set when x < 0
     flip = False
-    # answers exactly at the endpoints of the domain, there's no need to calculate the series
+    # answers exactly at the endpoints of the domain,
+    # there's no need to calculate the series
     if x == 1:
         return 0.0
     if x == -1:
@@ -73,4 +76,4 @@ def arccos_maclaurin(x, max_iterations=MAX_ITERATIONS):
             return result
 
     raise ConvergenceError(
-        "Maclaurin series did not converge within the maximum number of iterations.")
+        "Did not converge within the maximum number of iterations.")
