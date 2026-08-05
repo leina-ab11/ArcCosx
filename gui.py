@@ -11,7 +11,7 @@ CARD_BG = "#282c3e"
 ACCENT = "#7c9dff"
 ACCENT_DARK = "#5f7fe0"
 TEXT_PRIMARY = "#eef0f7"
-TEXT_MUTED = "#9aa0b4"
+TEXT_MUTED = "#c2c8dc"
 SUCCESS = "#7ee0a6"
 ERROR = "#ff8a8a"
 ENTRY_BG = "#333850"
@@ -28,16 +28,15 @@ def format_result(radians, degrees):
 
 
 def calculate():
-    """
-    Calculates the arccos of the input value and updates the result label.
-    """
+    """Calculates the arccos of the input value and updates the result label."""
     user_input = entry.get().strip()
     try:
         i = read_input(user_input)
         result_in_rad = arccos_maclaurin(i)
         result_in_deg = to_degrees(result_in_rad)
-        result_label.config(text=format_result(
-            result_in_rad, result_in_deg), foreground=SUCCESS)
+        result_label.config(
+            text="Result: \n" + format_result(result_in_rad, result_in_deg),
+            foreground=SUCCESS)
     except ValueError as err:
         result_label.config(text=f"Error: {err}", foreground=ERROR)
 
@@ -65,7 +64,7 @@ def _build_style():
     style.configure("Title.TLabel", background=CARD_BG, foreground=TEXT_PRIMARY,
                     font=("Segoe UI", 16, "bold"))
     style.configure("Subtitle.TLabel", background=CARD_BG, foreground=TEXT_MUTED,
-                    font=("Segoe UI", 10))
+                    font=("Segoe UI", 12))
     style.configure("Result.TLabel", background=CARD_BG, foreground=TEXT_PRIMARY,
                     font=("Consolas", 12), justify="center", wraplength=520)
 
