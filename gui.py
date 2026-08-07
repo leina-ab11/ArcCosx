@@ -61,36 +61,39 @@ def _build_style():
 
     style.configure("Card.TFrame", background=CARD_BG)
     style.configure("Root.TFrame", background=BG)
+    style.configure("TLabel", background=CARD_BG,
+                    foreground=TEXT_PRIMARY,
+                    font=("Segoe UI", 11))
     style.configure("Title.TLabel", background=CARD_BG,
                     foreground=TEXT_PRIMARY,
-                    font=("Segoe UI", 16, "bold"))
+                    font=("Segoe UI", 18, "bold"))
     style.configure("Subtitle.TLabel", background=CARD_BG,
-                    foreground=TEXT_MUTED,
-                    font=("Segoe UI", 12))
+                    foreground=TEXT_PRIMARY,
+                    font=("Segoe UI", 12, "bold"))
     style.configure("Result.TLabel", background=CARD_BG,
                     foreground=TEXT_PRIMARY,
-                    font=("Consolas", 12),
-                    justify="center", wraplength=520)
+                    font=("Segoe UI", 12, "bold"),
+                    justify="center", wraplength=560)
 
     style.configure("TEntry", fieldbackground=ENTRY_BG,
                     foreground=TEXT_PRIMARY,
                     bordercolor=ACCENT, insertcolor=TEXT_PRIMARY,
-                    borderwidth=1, relief="flat", padding=8)
+                    borderwidth=1, relief="flat", padding=10)
     style.map("TEntry", bordercolor=[("focus", ACCENT)])
     style.configure("Accent.TButton", background=ACCENT,
-                    foreground="#1a1a1a",
-                    font=("Segoe UI", 10, "bold"),
-                    borderwidth=0, padding=(14, 8))
+                    foreground="#10131a",
+                    font=("Segoe UI", 11, "bold"),
+                    borderwidth=0, padding=(16, 9))
     style.map("Accent.TButton", background=[("active", ACCENT_DARK)])
     style.configure("Ghost.TButton", background=CARD_BG,
                     foreground=TEXT_PRIMARY,
-                    font=("Segoe UI", 10),
-                    borderwidth=1, padding=(14, 8))
+                    font=("Segoe UI", 11, "bold"),
+                    borderwidth=1, padding=(16, 9))
     style.map("Ghost.TButton", background=[("active", ENTRY_BG)])
     style.configure("Exit.TButton", background=CARD_BG,
                     foreground=ERROR,
-                    font=("Segoe UI", 10),
-                    borderwidth=1, padding=(14, 8))
+                    font=("Segoe UI", 11, "bold"),
+                    borderwidth=1, padding=(16, 9))
     style.map("Exit.TButton", background=[("active", ENTRY_BG)])
 
     return style
